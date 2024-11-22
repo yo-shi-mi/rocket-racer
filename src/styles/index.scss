@@ -1,5 +1,5 @@
 :root {
-  --tg-theme-bg-color: var(--tg-theme-secondary-bg-color, #fff);
+  --tg-theme-bg-color: var(--tg-theme-bg-color, #fff);
   --tg-theme-text-color: var(--tg-theme-text-color, #000);
   --tg-theme-hint-color: var(--tg-theme-hint-color, #999);
   --tg-theme-link-color: var(--tg-theme-link-color, #2678b6);
@@ -20,7 +20,8 @@ body {
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #000;
+  background-color: var(--tg-theme-bg-color);
+  color: var(--tg-theme-text-color);
 }
 
 #root {
@@ -31,25 +32,67 @@ body {
 .container {
   max-width: 100%;
   padding: 16px;
-  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+  }
+
+  p {
+    margin-bottom: 2em;
+    color: var(--tg-theme-hint-color);
+  }
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 2em;
 }
 
 .button {
-  background-color: var(--tg-theme-button-color);
-  color: var(--tg-theme-button-text-color);
+  padding: 12px 20px;
   border: none;
   border-radius: 8px;
-  padding: 12px 20px;
-  font-size: 16px;
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
+  font-size: 1em;
   cursor: pointer;
   width: 100%;
-  margin: 8px 0;
   
   &:active {
     opacity: 0.8;
   }
 }
 
+.rules {
+  text-align: left;
+  width: 100%;
+  max-width: 300px;
+  
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+  }
+  
+  ul {
+    padding-left: 1.5em;
+    
+    li {
+      margin-bottom: 0.5em;
+      color: var(--tg-theme-hint-color);
+    }
+  }
+}
+
+// Game page styles
 .game-page {
   display: flex;
   flex-direction: column;
