@@ -5,17 +5,19 @@ import Leaderboard from './pages/Leaderboard'
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/rocket-racer/',
     element: <Home />,
   },
   {
-    path: '/game',
+    path: '/rocket-racer/game',
     element: <Game />,
   },
   {
-    path: '/leaderboard',
+    path: '/rocket-racer/leaderboard',
     element: <Leaderboard />,
   },
-])
+], {
+  basename: '/rocket-racer'
+})
 
 export default router
