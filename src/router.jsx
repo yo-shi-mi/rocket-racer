@@ -5,15 +5,15 @@ import Leaderboard from './pages/Leaderboard'
 
 const router = createBrowserRouter([
   {
-    path: '/rocket-racer/',
+    path: '/',
     element: <Home />,
   },
   {
-    path: '/rocket-racer/game',
+    path: '/game',
     element: <Game />,
   },
   {
-    path: '/rocket-racer/leaderboard',
+    path: '/leaderboard',
     element: <Leaderboard />,
   },
 ], {

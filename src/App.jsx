@@ -1,7 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { WebApp } from '@twa-dev/sdk';
+import { RouterProvider } from 'react-router-dom';
+import router from './router';
+
+// Initialize Telegram WebApp
+WebApp.ready();
+
 import Phaser from 'phaser';
 import { ethers } from 'ethers';
-import WebApp from '@twa-dev/sdk';
 
 // Game configuration
 const config = {
@@ -73,7 +79,7 @@ function gameOver(message) {
   // Handle game over logic
 }
 
-function App() {
+const App = () => {
   const [isConnected, setIsConnected] = useState(false);
   
   useEffect(() => {
@@ -100,16 +106,18 @@ function App() {
   }, []);
 
   return (
-    <div className="app">
-      <div id="game-container"></div>
-      <div className="controls">
-        <button onClick={() => gameStarted = true}>Start Game</button>
-        {!isConnected && (
-          <button onClick={connectWallet}>Connect Wallet</button>
-        )}
+    <RouterProvider router={router}>
+      <div className="app">
+        <div id="game-container"></div>
+        <div className="controls">
+          <button onClick={() => gameStarted = true}>Start Game</button>
+          {!isConnected && (
+            <button onClick={connectWallet}>Connect Wallet</button>
+          )}
+        </div>
       </div>
-    </div>
+    </RouterProvider>
   );
-}
+};
 
 export default App;
